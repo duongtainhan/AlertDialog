@@ -21,14 +21,31 @@ public class MainActivity extends AppCompatActivity {
         btnAlertDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
+                final AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
                 alertDialog.setTitle("Ban co muon tat hop thoai hay k?");
                 alertDialog.setMessage("Hay xac nhan ben duoi");
+                alertDialog.setCancelable(false);
                 alertDialog.setIcon(R.mipmap.ic_launcher);
-                alertDialog.setPositiveButton("Co", new DialogInterface.OnClickListener() {
+                //Nut co
+                alertDialog.setNegativeButton("Co", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Toast.makeText(MainActivity.this,"Ban da chon co",Toast.LENGTH_SHORT).show();
+                        finishAffinity();
+                    }
+                });
+                //nut Khong
+                alertDialog.setPositiveButton("Khong", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(MainActivity.this,"Ban da chon Khong",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                //Nut huy
+                alertDialog.setNeutralButton("Huy", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
                     }
                 });
                 alertDialog.show();
